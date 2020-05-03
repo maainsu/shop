@@ -1,0 +1,41 @@
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Detail</title>
+    <style>
+      img{
+        width: 300px;
+        height:500px;
+      }.boa{
+        text-align: center;
+        align: center;
+      }.ind{
+        background: #ffbfbf;
+        text-align: center;
+      }.tit{
+        background-color: #bfe8ff;
+        text-align: center;
+      }.emp{
+        font-size: 90px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="tit">
+      <button type="button" name="button1"><a href="http://127.0.0.1:8000">Index</a></button>
+      <button type="button" name="button2"><a href="http://127.0.0.1:8000/2/">상의</a></button>
+      <button type="button" name="button1"><a href="http://127.0.0.1:8000/1/">악세사리</a></button>
+      <button type="button" name="button2"><a href="http://127.0.0.1:8000/3/">하의</a></button>
+      <h1>eval_.title</h1>
+    </div>
+    <div class="boa">
+      <img src="{{ eval_.image.url }}">
+      <p>{{eval_.pub_date}} </p>
+      <p> {{eval_.body}} </p>
+      <p> <button> <a href = "{% url 'lectureList' %}"> Home </a> </button>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,60 @@
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>eval</title>
+    <style media="screen">
+      img{
+        width: 300px;
+        height:500px;
+      }.boa{
+        text-align: center;
+        align: center;
+      }.ind{
+        background: #ffbfbf;
+        text-align: center;
+      }.tit{
+        background-color: #bfe8ff;
+        text-align: center;
+      }.emp{
+        font-size: 90px;
+        text-align: center;
+      }
+
+    </style>
+  </head>
+  <body>
+    <div class="tit">
+      <button type="button" name="button1"><a href="http://127.0.0.1:8000">Index</a></button>
+      <button type="button" name="button2"><a href="http://127.0.0.1:8000/2/">상의</a></button>
+      <button type="button" name="button1"><a href="http://127.0.0.1:8000/1/">악세사리</a></button>
+      <button type="button" name="button2"><a href="http://127.0.0.1:8000/3/">하의</a></button>
+      <h1> 평가 목록 </h1>
+    </div>
+    <!-- 평가 대상인 강의에 대한 정보 -->
+    <div class="ind">
+      <h1> {{lect.lectureName}} </h2>
+      <p> {{lect.professor}} </p>
+      <p> {{lect.separation}} </p>
+    </div>
+
+    {% for eval in evals.all %}
+    <div class="boa">
+      {% if eval.image %}
+        <img src="{{ eval.image.url }}" >
+      {% endif %}
+      <h2> {{eval.title}} </h3>
+      <p> {{eval.pub_date}} </p>
+      <p> {{eval.summary}} </p>
+      <button type="button" name="button"> <a href="{% url 'detail' eval.id %}">자세히보기</a> </button>
+    </div>
+    {% empty %}
+    <div class="emp">
+      <h1> 아직 상품이 없습니다. </h1>
+    </div>
+
+    {% endfor %}
+    <button> <a href = "{% url 'write' lect.id %}"> 강의평 쓰기 </a> </button>
+  </body>
+</html>

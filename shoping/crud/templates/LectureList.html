@@ -1,0 +1,34 @@
+
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>index</title>
+    <style>
+      .fir{
+        background-color: #ffbfbf;
+        color:#ffffff;
+      }.acc{
+        background-color: #bfe8ff;
+        text-align: center;
+        color: #ffffff;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="fir">
+      <h1 style="text-align:center;">INDEX</h1>
+    </div>
+
+    {% for lects in lectures.all %}
+    <div class="acc">
+      <h2> {{lects.lectureName}} </h2>
+      <p> {{lects.professor}} </p>
+      <p> {{lects.separation}} </p>
+      <button> <a href = "{% url 'evalList' lects.id %}"> 상품 보기</a></button>
+    </div>
+
+    {% endfor %}
+  </body>
+</html>
